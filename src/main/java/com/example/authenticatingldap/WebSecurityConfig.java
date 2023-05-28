@@ -5,7 +5,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 
@@ -32,7 +31,8 @@ public class WebSecurityConfig {
                 .url("ldap://localhost:8389/dc=springframework,dc=org")
                 .and()
                 .passwordCompare()
-                .passwordEncoder(new BCryptPasswordEncoder())
+//                TODO: Implement password encoder for the security
+//                .passwordEncoder(new BCryptPasswordEncoder())
                 .passwordAttribute("userPassword");
     }
 
